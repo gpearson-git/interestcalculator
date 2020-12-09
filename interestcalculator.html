@@ -5,12 +5,12 @@
 <script>
 $(document).ready(function(){
   $("#button").click(function(){
-    var principle = parseInt($("#principle").val());
+    var principal = parseInt($("#principal").val());
     var interestRate = parseFloat($("#interestRate").val());
     var duration = parseFloat($("#duration").val());
-    var resultYearly = principle * Math.pow((1+(0.01*interestRate/1)),(duration*1));
-    var resultMonthly = principle * Math.pow((1+(0.01*interestRate/12)),(duration*12));
-    var resultWeekly = principle * Math.pow((1+(0.01*interestRate/52)),(duration*52));
+    var resultYearly = principal * Math.pow((1+(0.01*interestRate/1)),(duration*1));
+    var resultMonthly = principal * Math.pow((1+(0.01*interestRate/12)),(duration*12));
+    var resultWeekly = principal * Math.pow((1+(0.01*interestRate/52)),(duration*52));
     $("#result").html("$" + resultMonthly.toFixed(2));
   });
 });
@@ -21,7 +21,7 @@ $(document).ready(function(){
 
   <p>Total = P * (1 + (r / 12) ) ^ (D * 12)</p>
 
-  <p>Principle Amount, P ($): <input type="text" id="principle" value="1000"></p>
+  <p>Principal Amount, P ($): <input type="text" id="principal" value="1000"></p>
   <p>Annual Interest Rate, r (%): <input type="text" id="interestRate" value="5"></p>
   <p>Duration, D (years): <input type="text" id="duration" value="10"></p>
   <p>Total Value with Interest: <span id="result">...</span> </p>
