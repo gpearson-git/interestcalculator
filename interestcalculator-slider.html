@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.slidecontainer {
+  width: 50%;
+}
+
+.slider {
+  -webkit-appearance: none;
+  width: 100%;
+  height: 25px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  -webkit-transition: .2s;
+  transition: opacity .2s;
+}
+
+.slider:hover {
+  opacity: 1;
+}
+
+.slider::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 25px;
+  height: 25px;
+  background: #0023af;
+  cursor: pointer;
+}
+
+.slider::-moz-range-thumb {
+  width: 25px;
+  height: 25px;
+  background: #0023af;
+  cursor: pointer;
+}
+h1,p {
+  font-family: "Courier";
+}
+</style>
+</head>
+<body>
+
+<h1>Compound Interest Calculator</h1>
+
+<p>Total = Principal*(1*(0.01*rate(%)/12))^(duration*12)</p>
+
+<p>Principal ($): <input type="text" id="principal" value="1000" oninput="calcInterest()"></p>
+<p>Interest Rate (%): <input type="text" id="rate" value="5" oninput="calcInterest()"></p>
+<p>Duration (years): <span id="durationOut"></span></p>
+<div class="slidecontainer">
+  <input type="range" min="1" max="100" value="5" class="slider" id="duration" oninput="calcInterest()">
+  <p>Total ($): <span id="totalOutput"></span></p>
+</div>
+
+<script>
+var principal = document.getElementById("principal").value;
+var rate = document.getElementById("rate").value;
+var slider = document.getElementById("duration").value;
+var output = document.getElementById("totalOutput");
+var durationOut = document.getElementById("durationOut");
+var total = principal*Math.pow(1+0.01*(rate/12),slider*12);
+output.innerHTML = total.toFixed(2);
+durationOut.innerHTML = duration.value;
+
+function calcInterest() {
+  principal = document.getElementById("principal").value;
+  rate = document.getElementById("rate").value;
+  duration = document.getElementById("duration").value;
+  total = principal;
+
+  total = principal*Math.pow(1+0.01*(rate/12),duration*12);
+  output.innerHTML = total.toFixed(2);
+  durationOut.innerHTML = duration;
+}
+</script>
+</body>
+</html>
